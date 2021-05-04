@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<label>大类：</label>
+<select name="bigname" id="bigname">
+    <option value="1">前端技术</option>
+    <option value="2">程序开发</option>
+    <option value="3">数据库</option>
+</select>
+<label>小类：</label>
+<select name="smallname" id="smallname">
+</select>
+<script type="text/javascript">
+
+    function getSelectVal(){
+        $.getJSON("2.php",{bigname:$("#bigname").val()},function(json){
+            var smallname = $("#smallname");
+            $("option",smallname).remove(); //清空原有的选项
+            $.each(json,function(index,array){
+                console.log(index);
+                console.log(array);
+                var option = "<option value='"+array['id']+"'>"+array['title']+"</option>";
+                smallname.append(option);
+            });
+        });
+    }
+
+    $(function(){
+        getSelectVal();
+        $("#bigname").change(function(){
+            getSelectVal();
+            // alert('123');
+        });
+    });
+</script>
+</body>
+</html>

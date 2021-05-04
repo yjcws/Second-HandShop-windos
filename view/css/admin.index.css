@@ -1,0 +1,124 @@
+/*定义全局的div布局*/
+div#global{
+    /*设置宽度，设置百分比可以根据浏览器自适应宽度*/
+    width: 100%;
+    /*设置高度，950px是设置是实体高度，不能自适应的*/
+    height:100%;
+    /*设置背景颜色，方便区分布局*/
+    /*background-color: silver;*/
+}
+/*定义头部布局，前面的div可以不用写，#号前面默认有个id，凡事定义了id的标签，都可以用#号来表示*/
+#heading{
+    width: 100%;
+}
+#content_menu{
+    width: 20%;
+    height: 100%;
+    /*background-color: #C5E9F3;*/
+    /*定义浮动，不定义的话，界面会乱*/
+    float: left;
+}
+#content_body{
+    width: 79%;
+    margin-top: 10px;
+    /*height: 700px;*/
+    /*背景色*/
+    background-color: #f1f1f1;
+    float: right;
+}
+#floor{
+    /*删除浮动，不然会被其他的浮动给遮住*/
+    clear: both;
+}
+
+
+
+
+/*左边菜单*/
+/*.body-left {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 17%;*/
+/*    background-color: #FFFFFF;*/
+/*    height: 100%;*/
+/*    text-overflow: ellipsis;*/
+/*    float: left;*/
+
+/*}*/
+
+#content_menu ul {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+    width: 100%;
+    background-color: #FFFFFF ;
+    border: 1px solid #555;
+
+}
+
+#content_menu li a {
+    display: block;
+    /*color: #000;*/
+    padding: 8px 16px;
+}
+
+#content_menu li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+#content_menu li:last-child {
+    border-bottom: none;
+}
+
+#content_menu  li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*#content_menu  li a:hover:not(.active) {*/
+/*    background-color: #555;*/
+/*    color: white;*/
+/*}*/
+
+.body-center {
+    background: #C0C0C0 ;
+    margin-bottom: 20px;
+}
+
+
+/*表格*/
+
+/*    adminlog表格*/
+#customers
+{
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+}
+#customers td, #customers th
+{
+    font-size:1em;
+    border:1px solid #CCCCCC;
+    padding:10px;
+    text-align: center;
+
+}
+#customers th
+{
+    font-size:1.1em;
+    padding-top:10px;
+    padding-bottom:4px;
+    background-color:#606060 ;
+    color:#ffffff;
+    text-align: center;
+
+}
+#customers tr.alt td
+{
+
+    color:#000000;
+    background-color:#EAF2D3;
+}

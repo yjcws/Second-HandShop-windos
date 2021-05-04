@@ -1,0 +1,75 @@
+<div id="content_body">
+
+    <div class="body-center"> <font style="margin-left: 50px" size="5">当前位置 >> 商品分类列表</font></div>
+
+    <div class="body-center"> <a href="shop.categoriesAdd.php"><font style="margin-left: 30px" size="3">添加商品分类</font></a></div>
+    <hr>
+    <table id="customers">
+        <tr>
+            <th>id</th>
+            <th>分类名称</th>
+            <th>操作</th>
+        </tr>
+        <?php
+        include $_SERVER['DOCUMENT_ROOT']."/controller/page.class.php";
+
+
+        $NumWhere=array(
+            'table' => 'productlist',
+            'field' => 'count(*)',
+        );
+        $Num = $helper->getOne($NumWhere);
+
+        $infoNum = (int)$Num["count(*)"];
+
+        $page = new page($infoNum,10);
+
+
+//        SELECT concat( idpath, '_', id ) AS path, idpath,id, typename
+        //FROM `productlist` order by path
+        //查询数据
+        $ShopWhere = array(
+            'table' => 'productlist',
+            'field' => "concat( idpath, '_', id ) AS path, idpath,id, typename",
+            'order' => [
+                'field'=>'path ',
+                'order'=>'asc'
+            ],
+            'limit' => $page->limit(),
+        );
+        $ShopRestful = $helper->getAll($ShopWhere);
+//        echo "<pre>";
+//        var_dump($ShopRestful);
+//        echo "</pre>";
+
+        foreach($ShopRestful as $key => $val){
+
+            //表格隔行显示不同颜色
+            $class = ($key%2 == 0)? 'class="alt"': '';
+            ?>
+            <tr <?php echo $class?> >
+                <td ><?php echo $val['id'];?></td>
+                <td style="text-align:left"><?php echo str_repeat("一", substr_count($val["idpath"], "_")*1).$val["typename"];?></td>
+
+                <td><a href="../../public/Admin/ShopCategories.class.php?id=<?php echo $val['id'];?>&tab=ScDel">删除</a>|<a href="./shop.categoriesEdi.php?id=<?php echo $val['id'];?>">修改</a></td>
+            </tr>
+            <?php
+        }
+        ?>
+
+
+    </table>
+
+    <!--    页码-->
+
+    <div style="margin-top: 20px;text-align: center">
+        <?php
+
+
+        echo $page->show();
+
+
+        ?>
+    </div>
+</div>
+<div id="floor"></div>

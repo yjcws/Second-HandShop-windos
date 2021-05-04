@@ -1,0 +1,88 @@
+/*main:封装,控制整个页面
+*/
+.main{width:1200px;
+    margin: 0 auto;
+    /*白色*/
+}
+/*头部*/
+.header{
+    width:1200px;
+    margin: 0 auto;
+    padding:10px;
+}
+
+
+/*主体部分*/
+.main-box-top {
+    margin-top: 20px;
+}
+/*主体左边布局*/
+.main-left {
+    width: 18%;
+    float: left;
+    height: 100%;
+    /*background-color: #0a9ed5;*/
+    background-color: 	#FFFFFF;
+
+}
+/*主体左中间之间控制间隙*/
+.main-jianxi {
+    width: 1%;
+    float: left;
+    /*background-color: #0C0C0C*/
+}
+/*主体中间布局*/
+.main-center {
+    width: 60%;
+    float: left;
+    height: 100%;
+    /*background-color: #0E9A00*/
+    background-color: 	#FFFFFF;
+
+}
+/*主体右边布局*/
+.main-right {
+    width: 20%;
+    float: left;
+    height: 100%;
+    /*background-color: #00b7ee*/
+    background-color: 	#FFFFFF;
+
+}
+
+
+
+
+
+/*清浮动*/
+.wrapper .floatclear{
+    clear: both;
+}
+
+
+/*首页商品表格设置
+
+其中table-layout:fixed 表示：
+列宽由表格宽度和列宽度设定。在固定表格布局中，水平布局仅取决于表格宽度、列宽度、表格边框宽度、单元格间距，而与单元格的内容无关。
+
+其中word-break:break-all 表示：
+word-break 属性规定自动换行的处理方法。break-all允许在单词内换行。
+
+其中word-wrap: break-word 表示：
+word-wrap 属性允许长单词或 URL 地址换行到下一行。break-word就表示在长单词或 URL 地址内部进行换行。
+
+*/
+
+.tableSZ {
+    border:1px solid #CCCCCC;
+    table-layout:fixed;
+    width: 225px;
+    white-space: normal;
+    word-break : break-all;
+    margin-right:10px;
+    margin-bottom: 6px;
+    float: left;
+    /*background-color: #0a9ed5;*/
+}
+
+
